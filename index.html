@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ポートフォリオ</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/sanitize.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+	<script>
+	$(function() {
+		var navArea = $('.navi-area');
+		var agent = navigator.userAgent;
+
+		// PC画面でもスマホの横向きデザインが適用されるのを防ぐ
+		// if(agent.search(/iPhone/) != -1 || agent.search(/iPad/) != -1 || agent.search(/iPod/) != -1 || agent.search(/Android/) != -1){
+		if(agent.search(/iPhone/) != -1 || agent.search(/iPod/) != -1 || agent.search(/Android/) != -1){
+			$("#navi, #web-area, #other-area, #landport-navi").addClass('smartphone');
+		}
+		else {
+			$("#navi, #web-area, #other-area, #landport-navi").removeClass('smartphone');
+		}
+
+		// メニューボタンがクリックされたとき
+		$('.menu-btn-area').on('click', function () {
+			navArea.toggleClass('menu-open');
+		});
+
+		// #で始まるアンカーをクリックした場合に処理
+		$('a[href^="#"]').click(function() {
+			var speed = 400; // スクロールの速度ミリ秒
+			var href= $(this).attr("href");  // アンカーの値取得
+			var target = $(href == "#" || href == "" ? 'html' : href);  // 移動先を取得
+			var position = target.offset().top;  // 移動先を数値で取得
+			$('body,html').animate({scrollTop:position}, speed, 'swing');  // スムーススクロール
+			return false;
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="bg-area">
+		<header class="header-area">
+			<div class="gl-header">
+				<div class="title-area">
+					<h1><a href="#">ポートフォリオ</a></h1>
+				</div>
+			</div>
+		</header>
+		<nav class="navi-area">
+			<div class="menu-btn-area">
+				<div class="menu-btn-line">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<p>Menu</p>
+			</div>
+			<div id="navi">
+				<ul class="main-menu-area">
+					<li class="main-menu-list"><a href="#" class="main-menu-link">top</a></li>
+					<li class="main-menu-list"><a href="#works" class="main-menu-link">works</a>
+						<div id="web-area">
+							<p>web</p>
+							<ul>
+								<li class="sub-menu-list"><a href="#darbre" class="sub-menu-link">ビストロ ダルブル</a></li>
+								<li class="sub-menu-list"><a href="#nekocafe" class="sub-menu-link">ネコカフェ マロ</a></li>
+								<li class="sub-menu-list"><a href="#animal" class="sub-menu-link">動物のおもしろ習性</a></li>
+							</ul>
+						</div>
+						<div id="other-area">
+							<p>other</p>
+							<ul>
+								<li class="sub-menu-list"><a href="#banner1" class="sub-menu-link">バナー制作 １</a></li>
+								<li class="sub-menu-list"><a href="#banner2" class="sub-menu-link">バナー制作 ２</a></li>
+								<li class="sub-menu-list"><a href="#calendar" class="sub-menu-link">PHPでカレンダー</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="main-menu-list"><a href="#about" class="main-menu-link">about</a></li>
+					<li class="main-menu-list"><a href="#contact" class="main-menu-link">contact</a></li>
+				</ul>
+				<div id="landport-navi">
+					<p class="landport-works">works詳細</p>
+					<div class="landport-menu">
+						<div class="landport-web-area">
+							<p>web</p>
+							<ul>
+								<li class="sub-menu-list"><a href="#darbre" class="sub-menu-link">ビストロ ダルブル</a></li>
+								<li class="sub-menu-list"><a href="#nekocafe" class="sub-menu-link">ネコカフェ マロ</a></li>
+								<li class="sub-menu-list"><a href="#animal" class="sub-menu-link">動物のおもしろ習性</a></li>
+							</ul>
+						</div>
+						<div class="landport-other-area">
+							<p>other</p>
+							<ul>
+								<li class="sub-menu-list"><a href="#banner1" class="sub-menu-link">バナー制作 １</a></li>
+								<li class="sub-menu-list"><a href="#banner2" class="sub-menu-link">バナー制作 ２</a></li>
+								<li class="sub-menu-list"><a href="#calendar" class="sub-menu-link">PHPでカレンダー</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<main class="main-area container">
+			<div id="works">
+				<h2>works</h2>
+				<div class="banner-web">
+					<h3>web</h3>
+					<ul>
+						<li>
+							<a href="#darbre" class="banner darbre">
+								<img src="images/darbre.jpg" alt="">
+								<div class="mask">
+									<p class="caption">ビストロ ダルブル<br>恵比寿店</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#nekocafe" class="banner nekocafe">
+								<img src="images/nekocafe.jpg" alt="">
+								<div class="mask">
+									<p class="caption">ネコカフェ マロ</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#animal" class="banner animal">
+								<img src="images/animal.jpg" alt="">
+								<div class="mask">
+									<p class="caption">動物のおもしろ習性</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="banner-other">
+					<h3>other</h3>
+					<ul>
+						<li>
+							<a href="#banner1" class="banner banner1">
+								<img src="images/wine.jpg" alt="">
+								<div class="mask">
+									<p class="caption">バナー制作 １</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#banner2" class="banner banner2">
+								<img src="images/shoes.jpg" alt="">
+								<div class="mask">
+									<p class="caption">バナー制作 ２</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#calendar" class="banner calendar">
+								<img src="images/calendar.jpg" alt="">
+								<div class="mask">
+									<p class="caption">PHPでカレンダー</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="portfolio-area">
+					<div id="darbre" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">ビストロ ダルブル　恵比寿店</p>
+							<div class="button mobile-ng">
+								<a href="http://zd2b11.sim.zdrv.com/darbre/" target="_blank">サイトを表示する</a>
+							</div>
+							<p>制作期間：1カ月<br>(授業内作業10日＋講評後修正)</p>
+							<p>担当工程：デザイン／画像・パーツ作成／コーディング</p>
+							<div class="icon-area">
+								<div class="icon photoshop">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php disable">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress disable">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+						</div>
+						<div class="pc-img">
+							<img src="images/darbre_pc.jpg" alt="">
+						</div>
+						<div class="mobile-img">
+							<img src="images/mobile_ng.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ 訓練校での制作課題</p>
+							<p>コンセプト：「お店の魅力を伝える」</p>
+							<p>実在する飲食店を題材として「ヒアリングシート」と「参考にしてほしいサイト」をもとに、既存の「食べログ」ページから画像を選定してサイトを構成する課題でした。
+							<br>与えられた画像以上の手がかりをつかむため、制作にあたって実際にお店まで食事をしに行きました。</p>
+							<p>※お問い合わせフォームの機能実装なし・他サイトへのリンク実装なし</p>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_darbre_1.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ お店のイメージを表現</p>
+								<p>「参考にしてほしいサイト」のイメージをふまえて、お店を構成する魅力的な要素をサイト全体に取り入れました。
+								<br>隠れ家的外観・開放的な中庭のテラス・雑多で親しみがありカジュアルな内装など、このお店独自の世界観を伝えられるようなデザインにしました。</p>
+							</div>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_darbre_2.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ ファーストビュー</p>
+								<p>ファーストビューを印象的なものにするべく、「食べログ」内の画像の中でも特にお店を象徴する写真を選びスライダー内にまとめました。
+								<br>スライダーは、jQueryプラグイン「bxSlider」を使用しました。</p>
+							</div>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_darbre_3.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ サイトを制作する目的</p>
+								<p>「収容人数の多さを伝えてほしい」「中庭の良さを伝えたい」との要望に対して、その２つを同時に伝えられるような画像を作りました。
+								<br>用意された店内見取り図の画像データを加工して立体感を出し、店内の様子が直感的にイメージできるようにしました。
+								</p>
+							</div>
+						</div>
+					</div>
+					<div id="nekocafe" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">ネコカフェ マロ</p>
+							<div class="button">
+								<a href="http://zd2b11.sim.zdrv.com/wpnekocafe/" target="_blank">サイトを表示する</a>
+							</div>
+							<p>制作期間：1カ月<br>(授業内作業14日＋講評後修正)</p>
+							<p>担当工程：全部</p>
+							<div class="icon-area">
+								<div class="icon photoshop">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="pc-img">
+							<img src="images/nekocafe_pc.jpg" alt="">
+						</div>
+						<div class="mobile-img">
+							<img src="images/nekocafe_mobile.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ 訓練校での自由制作課題</p>
+							<p>コンセプト：「更新しやすいサイト」</p>
+							<p>架空の猫カフェをテーマとして全ての工程を担当しました。</p>
+							<p>前回の課題「ビストロ ダルブル　恵比寿店」では画像に注力したので、この制作ではプログラム機能とレスポンシブ対応に重点を置きました。
+							<br>また、サイト管理を容易にするため、WordPressの管理画面から画像・記事を更新できるようにしました。</p>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_nekocafe_1.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ 動きと機能</p>
+								<p>この制作では効果的な動き・使いやすい機能を実現することに力を入れました。
+								<br>また、「コンタクト」ページのお問い合わせフォームをPHPで実装しています。</p>
+								<p><span>●</span> jQuery
+								<br>「全ページ共通」ナビ： 固定ナビ
+								<br>「トップ」店長メッセージ： メッセージ循環
+								<br>「ショップ」「メニュー」ページ内リンク： スムーススクロール
+								<br><span>●</span> プラグイン使用
+								<br>「ショップ」猫スタッフ： モーダルウィンドウ表示(jQuery Magnific Popup)
+								<br>「フォト」フォトギャラリー： 画像表示・スライドショー(WP jQuery Lightbox)</p>
+							</div>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_nekocafe_2.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ 更新しやすいサイト</p>
+								<p>サイト更新にあたって、WordPressプラグイン「カスタムフィールドテンプレート」を使用して詳細な設定が簡単にできるようにしました。
+								<br>画像の「メニュー」ページでは、ラジオボタンの選択によってメニューの分類(フード・ドリンク・猫おやつ)と画像あり/なしをプログラム上で区別して表示します。
+								<br>その他、店長メッセージ・お知らせ・ニュース・猫スタッフ・フォトも同様に管理画面からの更新ができます。</p>
+							</div>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_nekocafe_3.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ レスポンシブ対応</p>
+								<p>さまざまなデバイスに対応するため、ページのレイアウト・デザインが柔軟に調整されるようにしました。</p>
+							</div>
+						</div>
+					</div>
+					<div id="animal" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">動物のおもしろ習性<br>(※公開前段階)</p>
+							<div class="button mobile-ng">
+								<a href="http://zd2b11.sim.zdrv.com/wp-animal-habits/" target="_blank">サイトを表示する</a>
+							</div>
+							<p>制作期間：30時間</p>
+							<p>担当工程：コーディング／WordPress化／記事流し込み</p>
+							<div class="icon-area">
+								<div class="icon photoshop disable">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery disable">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="pc-img">
+							<img src="images/animal_pc.jpg" alt="">
+						</div>
+						<div class="mobile-img">
+							<img src="images/mobile_ng.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ 短期アルバイトでのWebサイト制作業務</p>
+							<p>用意された画像データ・記事データを使用してデザインカンプと仕様書どおりに実装する業務でした。
+							<br>電話・メールで担当の方から指示を受けながら自宅で作業を行いました。
+							<br>短期間の実務でしたが、指示どおりに再現することやメールでの質問や確認等、とても勉強になりました。</p>
+							<p>※正式な公開は未定とのことで、こちらは担当範囲のみ単独の「動作デモ」となります。</p>
+						</div>
+					</div>
+
+					<div id="banner1" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">バナー制作 １</p>
+							<p>制作期間：2時間</p>
+							<p>担当工程：デザイン／画像作成</p>
+							<div class="icon-area">
+								<div class="icon photoshop">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3 disable">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery disable">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php disable">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress disable">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="pc-img">
+							<img src="images/banner1.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ 訓練校での制作課題</p>
+							<p>用意されたテキストとワインの画像を使用し、その他の素材は各自ネット上から探してバナーを作成する課題でした。
+							<br>高級感を色で表現しつつ、狭い範囲内にわかりやすく情報を配置することに試行錯誤しました。</p>
+						</div>
+					</div>
+					<div id="banner2" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">バナー制作 ２</p>
+							<p>制作期間：2時間</p>
+							<p>担当工程：デザイン／画像作成</p>
+							<div class="icon-area">
+								<div class="icon photoshop">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3 disable">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery disable">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php disable">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress disable">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="pc-img">
+							<img src="images/banner2.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ 訓練校での制作課題</p>
+							<p>用意されたテキストと画像素材を使用してサンプルバナーと似たようなデザインを考える課題でした。
+							<br>サンプルからターゲット層や方向性を読み取って、自分の考えを形にしました。</p>
+						</div>
+					</div>
+					<div id="calendar" class="portfolio">
+						<div class="title-area">
+							<p class="site-title">PHPでカレンダー</p>
+							<div class="button">
+								<a href="http://zd2b11.sim.zdrv.com/portfolio/calendar.php" target="_blank">サイトを表示する</a>
+							</div>
+							<p>制作期間：7日</p>
+							<p>担当工程：既存のプログラムに機能の追加</p>
+							<div class="icon-area">
+								<div class="icon photoshop disable">
+									<p>Photo<br>shop</p>
+								</div>
+								<div class="icon html5css3">
+									<p>HTML5<br>CSS3</p>
+								</div>
+								<div class="icon jquery">
+									<p>jQuery</p>
+								</div>
+								<div class="icon php">
+									<p>PHP</p>
+								</div>
+								<div class="icon wordpress disable">
+									<p>Word<br>Press</p>
+								</div>
+							</div>
+
+						</div>
+						<div class="pc-img">
+							<img src="images/calendar_pc.jpg" alt="">
+						</div>
+						<div class="mobile-img">
+							<img src="images/calendar_mobile.jpg" alt="">
+						</div>
+						<div class="text-area">
+							<p>■ PHP自習用プログラム</p>
+							<p>下記のカレンダーを作成する練習問題をもとに、予定を書き込む機能と見た目の演出を追加しました。
+							<br>http://php.birdlab.com/practice/6</p>
+							<p>ソースを読み解き自分でアレンジする試みはたいへん勉強になりました。</p>
+							<p>※背景の画像は「いらすとや」様の素材を使用させていただきました。
+							<br>http://www.irasutoya.com/</p>
+						</div>
+						<div class="detail-area">
+							<div class="detail-img">
+								<img src="images/detail_calendar_1.jpg" alt="">
+							</div>
+							<div class="detail-text">
+								<p>■ 操作方法</p>
+								<p>セレクトボックスから年・月を選択するとDBから該当する予定データを取得し、枠内におさまるように編集してカレンダーに表示します。
+								<br>日付をクリックすると予定入力用モーダルが開き、書き込まれた内容をもとにDBに追加・更新・削除を行います。
+								<br>DBはMySQLを使用しています。
+								<br>モーダルはjQueryで実装しました。</p>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div id="about" class="about-area">
+				<h2>about</h2>
+				<table>
+					<tr>
+						<th>氏名</th>
+						<td>菅野 友美　(すがの ともみ)</td>
+					</tr>
+					<tr>
+						<th>略歴</th>
+						<td>
+							1999年よりコンピュータシステム開発２社、計約４年半従事。<br>
+							その後、金属加工業に約12年勤務。<br>
+							退職後はWEB制作技術を習得する職業訓練を受講し、修了。<br>
+						</td>
+					</tr>
+					<tr>
+						<th>学歴</th>
+						<td>
+							1998年　東京造形大学<br>
+							造形学部美術学科美術専攻　卒業<br>
+							2017年　求職者支援訓練(6カ月間)<br>
+							Web制作スキルマスター科　修了
+						</td>
+					</tr>
+					<tr>
+						<th>資格</th>
+						<td>
+							ITパスポート<br>
+							MOS Excel2013<br>
+							Webクリエイター能力認定試験エキスパート<br>
+							PHP5技術者認定初級試験
+						</td>
+					</tr>
+					<tr>
+						<th>スキル</th>
+						<td>
+							HTML5/CSS3/jQuery/PHP/SQL/WordPress/<br>
+							Photoshop/Sass/Gulp/Emmet
+						</td>
+					</tr>
+				</table>
+				<div class="appeal">
+					<p>■ 最初の就職から一貫して、ものをつくる仕事に携わってきました。
+					<br>特に細かい作業をコツコツ行うことを得意としています。</p>
+					<p>■ 求職者支援訓練ではWeb制作に関するひととおりのスキルを習得しました。
+					<br>ここで得た学びを活かしつつ、興味と楽しさをもって関連業務に携わっていきたいと考えています。</p>
+				</div>
+			</div>
+			<div id="contact">
+				<h2>contact</h2>
+				<p><a href="mailto:zd2b11222@gmail.com">zd2b11222@gmail.com</a>までご連絡ください。</p>
+			</div>
+		</main>
+		<footer class="footer-area container">
+		</footer>
+	</div>
+</body>
+</html>
